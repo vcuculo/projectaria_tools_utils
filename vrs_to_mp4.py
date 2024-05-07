@@ -213,7 +213,7 @@ class Vrs2MoviePyFrameConverter:
 
                 if self.eyegaze_data:
                     eye_gaze_pts = self.log_eye_gaze(self.last_timestamp_)
-                    if eye_gaze_pts:
+                    if eye_gaze_pts is not None:
                         x, y = int(eye_gaze_pts[0]), int(eye_gaze_pts[1])
                         self.last_valid_frame_ = cv2.cvtColor(self.last_valid_frame_, cv2.COLOR_RGB2BGR)
                         cv2.circle(self.last_valid_frame_, (x, y), 5, (0, 0, 255), -1)
